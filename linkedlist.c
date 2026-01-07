@@ -2,53 +2,56 @@
 
 #include "adtlinkedlist.h"
 
-void inputList(Node *node) {
+void input(Node *node) {
     float data;
-    printf("--- Input Data inside Linked List ---\n");
-    for(int i = 0; i < n; ++i) {
-        printf("Data = ");
-        scanf("%f", &data);
-        node->data = data;
-    }
-    nodenext = data;
+    printf("Enter data inside node = ");
+    scanf("%f", &data);
+    node = createNode(data);
 }
 void display(Node *node) {
-    int i;
-    printf("Displaying Data Inside Linked List\n");
-    while(node->next != NULL) {
-        i = 1;
-        printf("Data[%d] = %f \n", i, node -> data);
-        node->next = data;
-        ++i;
-    }
+    do {
+    printf("%f -> ", node -> data)
+    node = node -> next;
+    }while(node != NULL);
+
 }
+
 int main () {
-    Node *node;
     int choice, n;
-    printf("1. Create nodes\n
-            2. Delete nodes\n
-            3. Input\n
-            4. Display\n
-            5. Exit\nChoose = ");
-    scanf("%d", &choice)
+    float data;
+    printf("Enter total no. of memory to work with or(limit of the nodes) = ");
+    scanf("%d", &n)
+    Node *node[n];
+    printf("1. \nCreate nodes\n
+        2. Delete nodes\n
+        3. Input\n
+        4. Display\n
+        5. Exit\nChoose = ");
+        scanf("%d", &choice)
     switch(choice) {
         case 1: 
             printf("Creating Nodes...\n");
-            printf("How many nodes to create = ");
-            scanf("%d", &n);
-            node = createNode(node, n);
+            printf("Enter initial data inside node = ");
+            scanf("%f", &data);
+            node = createNode(data);
             break;
         case 2:
             printf("Deleting Nodes...\n");
-            printf("How many nodes to delete = ");
-            scanf("%d", &n);
+            
 
             break;
         case 3:
             inputList(node);
             break;
         case 4:
-
+            display(node);
+            break;
+        case 5:
+            printf("Exiting...\n");
+            break;
+        default:
+            printf("Invalid Choice Please try again!!!\n");
+            
     }
     return 0;
 }

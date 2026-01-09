@@ -80,6 +80,14 @@ int main () {
 #include <stdio.h>
 #include <stdlib.h>
 #include "adtlinkedlist.h"
+void display(Node *head) {
+    printf("Data: ");
+    while (head != NULL) {
+        printf("%.2f -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
 
 int main() {
     Node *head = NULL;

@@ -108,14 +108,7 @@ Node *deleteFromEnd(Node *head) {
     return head;
 }
 
-void display(Node *head) {
-    printf("Data: ");
-    while (head != NULL) {
-        printf("%.2f -> ", head->data);
-        head = head->next;
-    }
-    printf("NULL\n");
-}
+
 
 void freeList(Node *head) {
     Node *temp;

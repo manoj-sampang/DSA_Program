@@ -6,7 +6,7 @@ void display(Node *node) {
     printf("Displaying data inside linked list\n");
     while(node != NULL) {
         i = 1;
-        printf("Data[%d] = %.2f\n",i, node->data);
+        printf("Data[%d] = %.2f ->\n",i, node->data);
         node = node -> next;
 
     }

@@ -1,10 +1,18 @@
-#ifndef ADTLIST_H
-#define ADTLIST_H
-typedef struct Node{
+#ifndef ADTLINKEDLIST_H
+#define ADTLINKEDLIST_H
+
+typedef struct Node {
     float data;
     struct Node *next;
-}Node;
+} Node;
 
-Node *createNode(float);
+Node *insertAtBeginning(Node *head, float data);
+Node *insertAtEnd(Node *head, float data);
+Node *deleteFromBeginning(Node *head);
+Node *deleteFromEnd(Node *head);
+
+void display(Node *head);
+void freeList(Node *head);
 
 #endif
+

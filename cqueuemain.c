@@ -23,7 +23,8 @@ int main() {
 
     if(choice == 3) 
         traverse(&cq);
-
+    if(choice == 4) 
+        printf("Exiting...\n");
     }while(choice != 4);
     return 0;
 }

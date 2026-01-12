@@ -81,26 +81,34 @@ int main () {
 #include <stdlib.h>
 #include "adtlinkedlist.h"
 void display(Node *head) {
+    if(head == NULL)  {
+        printf("Nothing to Display\n");
+        return;
+    }   
+    
     printf("Data: ");
-    while (head != NULL) {
-        printf("%.2f -> ", head->data);
-        head = head->next;
+    Node *temp = head;
+    while (temp -> next != NULL) {
+        printf("%.2f -> ", temp -> data);
+        temp = temp -> next;  
     }
+    printf("%.2f -> ", temp -> data);
     printf("NULL\n");
 }
 
 int main() {
     Node *head = NULL;
-    int choice;
+    int choice, pos;
     float data;
 
     while (1) {
         printf("\n1. Insert at Beginning");
-        printf("\n2. Insert at End");
-        printf("\n3. Delete from Beginning");
-        printf("\n4. Delete from End");
-        printf("\n5. Display");
-        printf("\n6. Exit\nChoose: ");
+        printf("\n2. Insert At Given Position");
+        printf("\n3. Insert at End");
+        printf("\n4. Delete from Beginning");
+        printf("\n5. Delete from End");
+        printf("\n6. Display");
+        printf("\n7. Exit\nChoose: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -109,27 +117,41 @@ int main() {
             scanf("%f", &data);
             head = insertAtBeginning(head, data);
             break;
-
         case 2:
+            printf("Enter data: ");
+            scanf("%f", &data);
+            if(head == NULL) {
+                insertAtPosition(head, data, 0);
+                
+            }
+            else {
+                printf("Enter position where you want to create a node: ");
+                scanf("%d", &pos);
+                insertAtPosition(head, data, pos);
+
+            }
+            break;
+        case 3:
             printf("Enter data: ");
             scanf("%f", &data);
             head = insertAtEnd(head, data);
             break;
 
-        case 3:
+        case 4:
             head = deleteFromBeginning(head);
             break;
 
-        case 4:
+        case 5:
             head = deleteFromEnd(head);
             break;
 
-        case 5:
+        case 6:
             display(head);
             break;
 
-        case 6:
+        case 7:
             freeList(head);
+            printf("Exiting...\n");
             exit(0);
 
         default:

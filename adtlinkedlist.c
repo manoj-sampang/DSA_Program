@@ -64,6 +64,59 @@ Node *insertAtBeginning(Node *head, float data) {
     return newNode;
 }
 
+/*Node *insertAtPosition(Node *head, float data, int pos) {
+    Node *newNode = malloc(sizeof(Node));
+    newNode -> data = data;
+    if(head == NULL) {
+        printf("Inserted without position since Linked List is Empty\n");
+        newNode -> next = head;
+        return newNode;
+    }
+    else {
+        Node *temp = head;
+        int n = 0;
+        while(n != pos) {
+            temp = temp -> next;
+            n++;
+        }
+        temp -> next = newNode;
+        newNode -> next = temp -> next;
+        return temp;
+    }
+}*/
+Node *insertAtPosition(Node *head, float data, int pos) {
+    Node *newNode = malloc(sizeof(Node));
+    newNode->data = data;
+
+    // Insert at beginning
+    if (pos == 0) {
+        newNode->next = head;
+        return newNode;
+    }
+
+    Node *temp = head;
+    int i = 0;
+
+    while (temp != NULL && i < pos - 1) {
+        temp = temp->next;
+        i++;
+    }
+
+    if (temp == NULL) {
+        printf("Invalid position\n");
+        free(newNode);
+        return head;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+
+    return head;
+}
+
+
+
+
 Node *insertAtEnd(Node *head, float data) {
     Node *newNode = malloc(sizeof(Node));
     newNode->data = data;
@@ -75,6 +128,7 @@ Node *insertAtEnd(Node *head, float data) {
     Node *temp = head;
     while (temp->next != NULL)
         temp = temp->next;
+    temp -> next =  newNode;
 
     return head;
 }
@@ -85,6 +139,7 @@ Node *deleteFromBeginning(Node *head) {
 
     Node *temp = head;
     head = head->next;
+    printf("%.2f Deleted From Beginning of Linked List\n", temp -> data);
     free(temp);
     return head;
 }
@@ -102,6 +157,7 @@ Node *deleteFromEnd(Node *head) {
     while (temp->next->next != NULL)
         temp = temp->next;
 
+    printf("%.2f Deleted From End of Linked List\n", temp -> next -> data);
     free(temp->next);
     temp->next = NULL;
     return head;

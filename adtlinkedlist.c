@@ -87,7 +87,6 @@ Node *insertAtBeginning(Node *head, float data) {
 Node *insertAtPosition(Node *head, float data, int pos) {
     Node *newNode = malloc(sizeof(Node));
     newNode->data = data;
-
     // Insert at beginning
     if (pos == 0) {
         newNode->next = head;

@@ -127,7 +127,7 @@ int main() {
             else {
                 printf("Enter position where you want to create a node: ");
                 scanf("%d", &pos);
-                insertAtPosition(head, data, pos);
+                head = insertAtPosition(head, data, pos);
 
             }
             break;

@@ -1,13 +1,44 @@
 #include <stdio.h>
 #include "hashfunc.h"
+#include <string.h>
+
+void display(Linkedlist* table, int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d: ", i);
+
+        Node* temp = table[i].head;
+
+        if (temp == NULL) {
+            printf("[ ]");
+        } else {
+            while (temp != NULL) {
+                printf("[%s] -> ", temp->name);
+                temp = temp->next;
+            }
+            printf("NULL");
+        }
+        printf("\n");
+    }
+}
 
 int main() {
-    char ch[50];
-    printf("--- This program calculates index from (0 - 9) ---\n");
-    printf("Enter name to find its hash function or hash index: ");
-    scanf("%s", ch);
-    int index = calHashFunc(ch);
+    Linkedlist table[TABLE_SIZE] = {0};
+    char ch[MAX];
 
-    printf("The Hash Index of [%s]: %d\n", ch, index);
+    printf("--- Hash Table with Chaining ---\n");
+
+    while (1) {
+        printf("Enter name (or exit): ");
+        scanf("%s", ch);
+
+        if (strcmp(ch, "exit") == 0)
+            break;
+
+        insertName(table, ch);
+    }
+
+    display(table, TABLE_SIZE);
+    freeList(table);
+
     return 0;
 }

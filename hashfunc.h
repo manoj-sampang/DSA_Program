@@ -1,22 +1,24 @@
 #ifndef MYHASHFUNC_H
 #define MYHASHFUNC_H
 
+#include <stdbool.h>
+
+#define MAX 50
+#define TABLE_SIZE 10
 
 typedef struct Node {
-    char *data;
+    char name[MAX];
     struct Node* next;
-}Node;
+} Node;
 
 typedef struct Linkedlist {
     Node* head;
-    
-}Linkedlist;
+} Linkedlist;
 
-
-
-int ord(char);
-
-int calHashFunc(char name[]);
- 
+int calHashFunc(char[]);
+Node* createNode(char[]);
+bool checkCollision(Linkedlist*);
+void insertName(Linkedlist[], char[]);
+void freeList(Linkedlist[]);
 
 #endif

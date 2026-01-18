@@ -1,0 +1,33 @@
+Hello, I am new to Vi - improved (VIM)
+
+
+	learning Vim Commands
+Different Vim Modes:
+	Vim works in different modes, initially vim is in normal mode where every key is a command or specific function that tells vim what to do,
+	To work with vim editor,
+	First of all Insert commands and it functions.
+	v = inserts inside visual mode for copying and pasting
+	u = functions to undo the writings
+	CTRL + R = functions to redo the writings
+		This below functions works inside visual modes
+		d = deletes the text
+		y = yanking means copying 
+		p = pasting the copied texts
+	j = functions as the arrow down key
+	k = functions as the arrow up key
+	l = functions as the arrow right key
+	h = functions as the arrow left key
+	i = let's you insert key before the cursor
+	a = let's you insert keys after the cursor position
+	o = let's you insert keys at the next line position
+	I = let's you insert key at the front of the line
+	A = let's you insert keys at the end of the line
+	O = let's you insert keys at the previous line
+	
+	To write any commands inside vim We must use :(colon) sigh to specify the commands it is like the terminal
+	So, lets learn some of the commands;
+	:q = quit the file in vim
+	:wq = write/save and quit
+	:q! = quit without saving the file changes
+	:w = write/ save
+	

@@ -6,18 +6,20 @@
 #define MAX 50
 #define TABLE_SIZE 10
 
-typedef struct Node {
+typedef struct Node
+{
     char name[MAX];
-    struct Node* next;
+    struct Node *next;
 } Node;
 
-typedef struct Linkedlist {
-    Node* head;
+typedef struct Linkedlist
+{
+    Node *head;
 } Linkedlist;
 
 int calHashFunc(char[]);
-Node* createNode(char[]);
-bool checkCollision(Linkedlist*);
+Node *createNode(char[]);
+bool checkCollision(Linkedlist *);
 void insertName(Linkedlist[], char[]);
 void freeList(Linkedlist[]);
 

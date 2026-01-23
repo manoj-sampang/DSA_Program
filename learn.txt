@@ -2,32 +2,95 @@ Hello, I am new to Vi - improved (VIM)
 
 
 	learning Vim Commands
-Different Vim Modes:
+	Different Vim Modes:
 	Vim works in different modes, initially vim is in normal mode where every key is a command or specific function that tells vim what to do,
 	To work with vim editor,
 	First of all Insert commands and it functions.
 	v = inserts inside visual mode for copying and pasting
 	u = functions to undo the writings
+	0 = goes to beginning of the line
+	$ = goes to end of the line
+	% = used to navigate the end of the bracket curly("{") 
+	t(symbol) = moves to the front specified symbol after the cursor
+	f(symbol) = finds the specified symbol or character after the cursor
+	T(symbol) = moves to the back specified symbol before the cursor
+	F(symbol) = finds the specified symbol or character before the cursor
+	gg = top of the file
+	G = end of the file
+	zz = to center a line
+	>> = tab / indent to the right
+	<< = reverse tab / indent to the left
+	/word = search a specific word (n for naviagte down and N for navigate up for the same word)	
+	?word = search a specific word (n for navigate up and N for navaigate down for the same word)
+and in visual mode select a specific word (# for navigate up and * for navigate down for the same word)	
+	== to indent the line of code
+	=G = to indent the whoe file with codes
+	CTRL + v = visual block mode where a block of vertical text could be deleted / selected
 	CTRL + R = functions to redo the writings
-		This below functions works inside visual modes
-		d = deletes the text
-		y = yanking means copying 
-		p = pasting the copied texts
-	j = functions as the arrow down key
-	k = functions as the arrow up key
-	l = functions as the arrow right key
-	h = functions as the arrow left key
-	i = let's you insert key before the cursor
-	a = let's you insert keys after the cursor position
-	o = let's you insert keys at the next line position
-	I = let's you insert key at the front of the line
-	A = let's you insert keys at the end of the line
-	O = let's you insert keys at the previous line
-	
-	To write any commands inside vim We must use :(colon) sigh to specify the commands it is like the terminal
-	So, lets learn some of the commands;
-	:q = quit the file in vim
-	:wq = write/save and quit
-	:q! = quit without saving the file changes
-	:w = write/ save
-	
+	shift + v = visual line mode
+	This below functions works inside visual modes
+	d = deletes the text
+	y = yanking means copying 
+	p = pasting the copied texts also pastes the latest deletes
+	dd = deletes the line
+	cc = changes the line
+	Y = copies the whole line
+	D = deletes the line from the cursor to the right till end
+	C = changes the line from the cursor to the right till end
+	r = replaces the letter of which the cursor is on
+	w = navigates a word forward (- is also considered a word)
+	W = navigates a word forward (- is not considered a word)
+	b = navigates a word backward (- is also considered a word)
+B = navigates a word backward (- is not considered a word)
+	dw = delete a word forward from the cursor position
+dnw = deletes n no. of words ( where n = 2, 3, 4, ...)
+	diw = delete the whole word word where the cursor is at
+	db = delete a word backward from the cursor position
+dnb = delete n no. of words backwards from the cursor position( where n = 2, 3, 4, ...)
+	ciw = change in word means a word could be changed using ciw(change in word) in normal mode
+	e = end of the word 
+	d0 = delete line from beginning to cursor position
+	d$ = delete line from cursor positino to the end
+	ci" = change in quotation
+	ci( = change in inside bracket
+			j = functions as the arrow down key
+			k = functions as the arrow up key
+			l = functions as the arrow right key
+			h = functions as the arrow left key
+			i = let's you insert key before the cursor
+			a = let's you insert keys after the cursor position
+			o = let's you insert keys at the next line position
+			I = let's you insert key at the front of the line
+			A = let's you insert keys at the end of the line
+			O = let's you insert keys at the previous line
+
+			To write any commands inside vim We must use :(colon) sigh to specify the commands it is like the terminal
+			So, lets learn some of the commands;
+			:q = quit the file in vim
+			:wq = write/save and quit
+			:q! = quit without saving the file changes
+			:w = write/ save
+			Marking specific locations 
+			This is just the waypoint to jump to the specific line
+			m(char) = marking with the specific character and to retrive that marking we can use single quotation(word) 'word 
+
+	Using a register in Vim where copied items or macro are stored
+	to see register contents you can use 
+	:reg = is used to see the elements in the register including our macros
+	register stores the latest yanked iterms 
+	"0p = pastes the latest yanked items
+	use quotation "np where n is the register count that stores the values
+
+How to use macros in vim 
+	macro is combinatinos of vim bindings where a sequence of vim commands could be formed called macro
+	q(char) = record a macro named a character such as a, b, c, d etc. and q to stop recording
+	let us suppose i want to create a macro that deleted two first words and paste at the end
+	so, fistly start with commands q and the character name of that macro
+	THIRD FOURTH FIFTH FIRST SECOND 
+	to execute the macro use @(char) (at sign) and the character that you named your macro
+Substituting and Replacing
+	commands that are used to search several similar words and replace with another one
+	:%s/current_name/replace_name/g = % for the whole file and s for substitue comamnds and / is to find
+	if you want to substitute just in a selection of your code/text
+	:s/current_name/replace_name/g = % is not used since it is not in the whole file just in the selected portion
+	. = stores the latest entry of the keyboard that just exectued or commands that just used

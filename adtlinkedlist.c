@@ -57,7 +57,8 @@ void freeList(Node *head) {
 #include <stdlib.h>
 #include "adtlinkedlist.h"
 
-Node *insertAtBeginning(Node *head, float data) {
+Node *insertAtBeginning(Node *head, float data)
+{
     Node *newNode = malloc(sizeof(Node));
     newNode->data = data;
     newNode->next = head;
@@ -84,11 +85,13 @@ Node *insertAtBeginning(Node *head, float data) {
         return temp;
     }
 }*/
-Node *insertAtPosition(Node *head, float data, int pos) {
+Node *insertAtPosition(Node *head, float data, int pos)
+{
     Node *newNode = malloc(sizeof(Node));
     newNode->data = data;
     // Insert at beginning
-    if (pos == 0) {
+    if (pos == 0)
+    {
         newNode->next = head;
         return newNode;
     }
@@ -96,12 +99,14 @@ Node *insertAtPosition(Node *head, float data, int pos) {
     Node *temp = head;
     int i = 0;
 
-    while (temp != NULL && i < pos - 1) {
+    while (temp != NULL && i < pos - 1)
+    {
         temp = temp->next;
         i++;
     }
 
-    if (temp == NULL) {
+    if (temp == NULL)
+    {
         printf("Invalid position\n");
         free(newNode);
         return head;
@@ -113,10 +118,8 @@ Node *insertAtPosition(Node *head, float data, int pos) {
     return head;
 }
 
-
-
-
-Node *insertAtEnd(Node *head, float data) {
+Node *insertAtEnd(Node *head, float data)
+{
     Node *newNode = malloc(sizeof(Node));
     newNode->data = data;
     newNode->next = NULL;
@@ -127,27 +130,30 @@ Node *insertAtEnd(Node *head, float data) {
     Node *temp = head;
     while (temp->next != NULL)
         temp = temp->next;
-    temp -> next =  newNode;
+    temp->next = newNode;
 
     return head;
 }
 
-Node *deleteFromBeginning(Node *head) {
+Node *deleteFromBeginning(Node *head)
+{
     if (head == NULL)
         return NULL;
 
     Node *temp = head;
     head = head->next;
-    printf("%.2f Deleted From Beginning of Linked List\n", temp -> data);
+    printf("%.2f Deleted From Beginning of Linked List\n", temp->data);
     free(temp);
     return head;
 }
 
-Node *deleteFromEnd(Node *head) {
+Node *deleteFromEnd(Node *head)
+{
     if (head == NULL)
         return NULL;
 
-    if (head->next == NULL) {
+    if (head->next == NULL)
+    {
         free(head);
         return NULL;
     }
@@ -156,17 +162,17 @@ Node *deleteFromEnd(Node *head) {
     while (temp->next->next != NULL)
         temp = temp->next;
 
-    printf("%.2f Deleted From End of Linked List\n", temp -> next -> data);
+    printf("%.2f Deleted From End of Linked List\n", temp->next->data);
     free(temp->next);
     temp->next = NULL;
     return head;
 }
 
-
-
-void freeList(Node *head) {
+void freeList(Node *head)
+{
     Node *temp;
-    while (head != NULL) {
+    while (head != NULL)
+    {
         temp = head;
         head = head->next;
         free(temp);

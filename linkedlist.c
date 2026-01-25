@@ -107,8 +107,9 @@ int main() {
         printf("\n3. Insert at End");
         printf("\n4. Delete from Beginning");
         printf("\n5. Delete from End");
-        printf("\n6. Display");
-        printf("\n7. Exit\nChoose: ");
+        printf("\n6. Delete at given position");
+        printf("\n7. Display");
+        printf("\n8. Exit\nChoose: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -121,7 +122,7 @@ int main() {
             printf("Enter data: ");
             scanf("%f", &data);
             if(head == NULL) {
-                insertAtPosition(head, data, 0);
+                head = insertAtPosition(head, data, 0);
                 
             }
             else {
@@ -144,12 +145,18 @@ int main() {
         case 5:
             head = deleteFromEnd(head);
             break;
-
         case 6:
+            if(head == NULL) 
+                printf("No data to be deleted\n");
+            printf("Insert the position of the node you want to delete = ");
+            scanf("%d", &pos);
+            head = deleteFromMiddle(head, pos);
+            break;
+        case 7:
             display(head);
             break;
 
-        case 7:
+        case 8:
             freeList(head);
             printf("Exiting...\n");
             exit(0);

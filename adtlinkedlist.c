@@ -168,6 +168,28 @@ Node *deleteFromEnd(Node *head)
     return head;
 }
 
+Node *deleteFromMiddle(Node* head, int pos) {
+    if(head == NULL) 
+        return head;
+    int i = 1;
+    Node *temp = head;
+    Node *pre = head;
+    while(temp != NULL && i < pos) {
+        pre = temp;
+        temp = temp -> next;
+        ++i;   
+    }     
+    if(temp == NULL) {
+        printf("No Node to delete in %d position\n", pos);
+        return head;
+    }
+    printf("Items Deleted is %.2f\n", temp -> data);
+    if(temp -> next == NULL)
+        free(temp); return NULL;
+    pre -> next = temp -> next;
+    free(temp);
+    return head;
+}
 void freeList(Node *head)
 {
     Node *temp;

@@ -147,7 +147,7 @@ int main() {
             break;
         case 6:
             if(head == NULL) 
-                printf("No data to be deleted\n");
+                printf("No data to be deleted\n"); break;
             printf("Insert the position of the node you want to delete = ");
             scanf("%d", &pos);
             head = deleteFromMiddle(head, pos);

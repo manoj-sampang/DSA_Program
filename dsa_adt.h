@@ -11,12 +11,12 @@ typedef struct Stack {
 }Stack;	
 
 //"ADT" stack function prototype
-void push(Stack*, float);
+void push(Stack*, float, int);
 float pop(Stack*);
 int check_index(Stack*);
 
 //traversing is done in the main program due to header file being silent and independent doesn't necessary needs any printing functions 
 
 
-
+//more implementaions will be soon later
 #endif

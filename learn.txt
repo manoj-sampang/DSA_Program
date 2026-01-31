@@ -8,7 +8,7 @@ Hello, I am new to Vi - improved (VIM)
 	First of all Insert commands and it functions.
 	v = inserts inside visual mode for copying and pasting
 	u = functions to undo the writings
-	0 = goes to beginning of the line
+	0 = goes to beginning of the define
 	$ = goes to end of the line
 	% = used to navigate the end of the bracket curly("{") 
 	t(symbol) = moves to the front specified symbol after the cursor

@@ -41,8 +41,8 @@ void main_menu()
         printf("$. Exit\n");
         printf("Choose = ");
         fflush(stdout);
-        scanf("%c", &choose);
-        while(getchar() != '\n');  // Clear entire buffer
+        scanf(" %c", &choose);
+        
         
         switch (choose)
         {
@@ -50,7 +50,6 @@ void main_menu()
             printf("Insert Total capacity of Stack = ");
             fflush(stdout);
             scanf("%d", &n);
-            while(getchar() != '\n');  // Clear entire buffer
             printf("Creating Stack....\n");
             printf("Stack Created, Procceed\n");
             main_stack(n);
@@ -84,7 +83,8 @@ void main_queue(int n) {
 		printf("3. Traverse\n");
 		printf("$. Exit\n");
 		fflush(stdout);
-		scanf("%c", &choice);
+		scanf(" %c", &choice);
+		while(getchar() != '\n');  // Clear entire buffer
 		switch(choice) {
 			case '1':
 				printf("Insert Value for Enqueue Opeartion\n");
@@ -117,11 +117,11 @@ Queue* create_queue(int n) {
 }
 void traverse_queue(Queue* q) {
 	if(!isEmpty(q)) {
-		Queue* temp;
-		temp -> rear = q -> rear;
-		while(temp -> rear != q -> front) {
-			printf("%.2f\t", *(q -> items + temp -> rear));
-			temp -> rear --;
+		Queue temp;
+		temp.rear = q->rear;
+		while(temp.rear != q->front) {
+			printf("%.2f\t", *(q->items + temp.rear));
+			temp.rear --;
 		}
 		printf("\n");
 	}
@@ -149,8 +149,8 @@ void main_stack(int n)
         printf("$. Back to Dashboard\n");
         printf("Choose = ");
         fflush(stdout);
-        scanf("%c", &choice);
-        while(getchar() != '\n');  // Clear entire buffer
+        scanf(" %c", &choice);
+       
         
         switch (choice)
         {

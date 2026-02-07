@@ -1,7 +1,7 @@
 // this file contains the functions defintions of all the dsa algorithms which is implemented at "dsa_adt.h"
 
 
-#include "dsa_adt.h"
+#include "dsa_adt.h"	 
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -29,3 +29,32 @@ float pop(Stack* st) {
 int check_index(Stack* st) {
     return st -> top;
 }
+// Queue Implementation
+
+void enqueue(Queue* q, float data, int capacity) {
+	if(isFull(q, capacity)) 
+		return;
+	q -> rear++;
+	*(q -> items + q -> rear) = data;
+	
+}
+float dequeue(Queue* q) {
+	if(isEmpty(q))
+		return 0.0;
+	q -> front++;
+	return *(q -> items + q -> front);	
+}
+int isEmpty(Queue* q) {
+	if(q -> rear == q -> front)
+		return 1;
+	else 
+		return 0;
+}
+int isFull(Queue* q, int capacity) {
+	if(q -> rear == capacity - 1) {
+		return 1;
+	}
+	else 
+		return 0;
+}
+

@@ -18,6 +18,11 @@ void traverse_stack(Stack *);
 void free_stack(Stack *);
 // Hence This programs run most of dsa_adt.h code where all dsa _adt are implemented
 
+//For Queue Operations
+void main_queue(int n);
+void free_queue(Queue*);
+void traverse_queue(Queue*);
+Queue* create_queue(int);
 int main()
 {
 	// Stack
@@ -32,6 +37,7 @@ void main_menu()
     {
         printf("===  DASHBOARD  ====\n");
         printf("1. STACK OPERATION\n");
+	printf("2. QUEUE OPERATION\n");
         printf("$. Exit\n");
         printf("Choose = ");
         fflush(stdout);
@@ -50,6 +56,13 @@ void main_menu()
             main_stack(n);
             clear_screen();
             break;
+	case '2':
+		printf("Insert Total capacity of Queue = ");
+		fflush(stdout);
+		scanf("%d", &n);
+		main_queue(n);
+		clear_screen();
+		break;
         case '$':
             printf("Exiting...\n");
             return;
@@ -57,6 +70,67 @@ void main_menu()
             printf("Invalid Case\n");
         }
     }
+}
+void main_queue(int n) {
+	clear_screen();
+	char choice;
+	float value, deqvalue;
+	Queue* q = create_queue(n);
+	
+	while(1) {
+		printf(" == Queue == \n");
+		printf("1. Enqueue\n");
+		printf("2. Dequeue\n");
+		printf("3. Traverse\n");
+		printf("$. Exit\n");
+		fflush(stdout);
+		scanf("%c", &choice);
+		switch(choice) {
+			case '1':
+				printf("Insert Value for Enqueue Opeartion\n");
+				scanf("%f", &value);
+				enqueue(q, value, n);
+				if(!isFull(q, n)) 
+					printf("Enqueued\n");
+				break;
+			case '2':
+				deqvalue = dequeue(q);
+				if(deqvalue != 0.0) 
+					printf("Dequeued = %.2f\n", deqvalue);
+				break;
+			case '3':
+				traverse_queue(q);
+				break;
+			case '$':
+				free_queue(q);
+				return;
+			default:
+				printf("Invalid Case\n");
+		}
+	}
+}
+
+Queue* create_queue(int n) {
+	Queue* q = (Queue*) malloc(sizeof(Queue));
+	q -> items = (float*) malloc(n * sizeof(float));
+	return q;
+}
+void traverse_queue(Queue* q) {
+	if(!isEmpty(q)) {
+		Queue* temp;
+		temp -> rear = q -> rear;
+		while(temp -> rear != q -> front) {
+			printf("%.2f\t", *(q -> items + temp -> rear));
+			temp -> rear --;
+		}
+		printf("\n");
+	}
+	else 
+		return;
+}
+void free_queue(Queue* q) {
+	free(q -> items);
+	free(q);
 }
 
 void main_stack(int n)

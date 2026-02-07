@@ -17,6 +17,16 @@ int check_index(Stack*);
 
 //traversing is done in the main program due to header file being silent and independent doesn't necessary needs any printing functions 
 
+// Queue Implementation
+typedef struct Queue {
+	float *items;
+	int front, rear;
+}Queue;
 
+//"ADT" Queue function prototype
+void enqueue(Queue*, float, int);
+float dequeue(Queue*);
+int isEmpty(Queue*);
+int isFull(Queue*, int);
 //more implementaions will be soon later
 #endif

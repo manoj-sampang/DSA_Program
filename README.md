@@ -22,9 +22,15 @@
 **Operations on Stack**
 - Push Operation
     - check whether the stack is full or not if full then do not push return and prompt
-    - if not full then increase the top variable to point to the next memory and insert the valud 
+    - if not full then increase the top variable to point to the next memory and insert the value 
 - Pop Operation
+    - check whether the stack is empty or not if the stack is empty then print "cannot be popped" and return
+    - if not empty then print the data pointed by the TOP pointer and decrease TOP by 1
 - Traverse Operation
+    - Check whether the stack is empty or not if the stack is empty then print "cannot be traversed" and return
+    - else create a temporary index varialbe to hold the value of TOP and print the stack item with the help of the temporary index variable and print the data till the temporary index variable doesn't reaches -1
 - Is Empty 
+    - Check whether TOP == -1 if true then return 1 else return 0
 - Is Full
+    - Check whether TOP == MAX - 1 if true then return 1 else return 0
 

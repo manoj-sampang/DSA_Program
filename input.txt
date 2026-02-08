@@ -1,0 +1,10 @@
+Written from the file not the keyboard.
+Learning Everything is a File.
+	Everything is a file? Huh that is kind of crazy to think like your hardware all of them are files. Can you imagine? like keyboards, monitors, SSDs,
+everthing is a file. This is a file written to you by my keyboard it is easier to communicate with hardware. everything functions and instructions can be 
+run through the file and it gives very strong and vulnerable concept about how can we communicate with the hardware components. By simply typing commands i can
+communicate with every hardware and software of the system so i can customize to my liking. Unlike Windows, Using Linux OS could be life changing for every 
+enthusiasts who are interested in creating their own customized system which you are comfortable with I suggest you to swtich to Linux.
+
+Linux = Everything is a file, the system you work with are considered a collections of files where you can interact and manipulate its contents at will. So, isn't
+it interesting. At first it could be what am i doing with this, but if you just don't give up and just try harder you can master it. So, Again everything is a file  

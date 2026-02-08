@@ -84,7 +84,6 @@ void main_queue(int n) {
 		printf("$. Exit\n");
 		fflush(stdout);
 		scanf(" %c", &choice);
-		while(getchar() != '\n');  // Clear entire buffer
 		switch(choice) {
 			case '1':
 				printf("Insert Value for Enqueue Opeartion\n");
@@ -113,6 +112,8 @@ void main_queue(int n) {
 Queue* create_queue(int n) {
 	Queue* q = (Queue*) malloc(sizeof(Queue));
 	q -> items = (float*) malloc(n * sizeof(float));
+	q -> front = -1;
+	q -> rear = -1;
 	return q;
 }
 void traverse_queue(Queue* q) {

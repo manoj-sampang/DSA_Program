@@ -50,7 +50,7 @@ dnb = delete n no. of words backwards from the cursor position( where n = 2, 3, 
 	ciw = change in word means a word could be changed using ciw(change in word) in normal mode
 	e = end of the word 
 	d0 = delete line from beginning to cursor position
-	d$ = delete line from cursor positino to the end
+	d$ = delete line from cursor position to the end
 	ci" = change in quotation
 	ci( = change in inside bracket
 			j = functions as the arrow down key
@@ -86,7 +86,7 @@ How to use macros in vim
 	q(char) = record a macro named a character such as a, b, c, d etc. and q to stop recording
 	let us suppose i want to create a macro that deleted two first words and paste at the end
 	so, fistly start with commands q and the character name of that macro
-	THIRD FOURTH FIFTH FIRST SECOND 
+	FIFTH FIRST SECOND THIRD FOURTH 
 	to execute the macro use @(char) (at sign) and the character that you named your macro
 Substituting and Replacing
 	commands that are used to search several similar words and replace with another one

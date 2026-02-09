@@ -28,5 +28,9 @@ void enqueue(Queue*, float, int);
 float dequeue(Queue*);
 int isEmpty(Queue*);
 int isFull(Queue*, int);
+//"ADT" Circular Queue function prototype 
+
+
+
 //more implementaions will be soon later
 #endif

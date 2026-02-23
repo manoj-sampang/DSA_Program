@@ -58,3 +58,34 @@ int isFull(Queue* q, int capacity) {
 		return 0;
 }
 
+// Circular Queue Implementation
+void circular_enqueue(Queue* cq, float data, int size) {
+	if(circular_isFull(cq, size))
+		return;
+	cq -> rear = (cq -> rear + 1) % size;
+	*(cq -> items + cq -> rear) = data;
+	printf("Enqueued in circular queue\n");
+}
+
+float circular_dequeue(Queue* cq, int size) {
+	if(circular_isEmpty(cq)) {
+		printf("Circular Queue is Empty\n");
+		return 0.0;
+	}
+	cq -> front = (cq -> front + 1) % size;
+	return *(cq -> items + cq -> front);
+}
+int circular_isFull(Queue* cq, int size) {
+	if(cq -> front == (cq -> rear + 1) % size) {
+		return 1;
+	}
+	else 
+		return 0;
+}
+
+int circular_isEmpty(Queue* cq) {
+	if(cq -> front == cq -> rear) 
+		return 1;
+	else 
+		return 0;
+}

@@ -8,7 +8,7 @@
 
 # Executables
 main
-fiborecursion
+fiborecursion, dsa_adt_main
 
 # VSCode
 .vscode/

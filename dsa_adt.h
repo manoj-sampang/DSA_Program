@@ -30,6 +30,11 @@ int isEmpty(Queue*);
 int isFull(Queue*, int);
 //"ADT" Circular Queue function prototype 
 
+void circular_enqueue(Queue*, float, int);
+float circular_dequeue(Queue*, int);
+int circular_isEmpty(Queue*);			
+int circular_isFull(Queue*, int);
+
 
 
 //more implementaions will be soon later

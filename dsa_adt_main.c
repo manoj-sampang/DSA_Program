@@ -1,5 +1,6 @@
 #include "dsa_adt.h"
 #include <stdio.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -23,6 +24,9 @@ void main_queue(int n);
 void free_queue(Queue *);
 void traverse_queue(Queue *);
 Queue *create_queue(int);
+
+//for Circular Queue
+void main_cqueue(int n);
 void main_menu()
 {
 	char choose;
@@ -66,7 +70,7 @@ void main_menu()
 void main_queue(int n)
 {
 	clear_screen();
-	char choice;
+	char choice, ans;
 	float value, deqvalue;
 	Queue *q = create_queue(n);
 	
@@ -97,6 +101,11 @@ void main_queue(int n)
 			traverse_queue(q);
 			break;
 			case '$':
+			printf("Before Exiting would you like to perform Circular Queue Operation as well (y or n) = ");
+			scanf(" %c", &ans);
+			if(ans == 'y') 
+				main_cqueue(n);
+			printf("Exiting...\n");
 			free_queue(q);
 			return;
 			default:
@@ -104,7 +113,48 @@ void main_queue(int n)
 		}
 	}
 }
-
+void main_cqueue(int n) {
+	clear_screen();
+	char choice;
+	float value, deqvalue;
+	Queue* cq = create_queue(n);
+	while (1)
+	{
+		printf(" == Circular Queue == \n");
+		printf("1. Enqueue\n");
+		printf("2. Dequeue\n");
+		printf("3. Traverse\n");
+		printf("$. Exit\n");
+		fflush(stdout);
+		scanf(" %c", &choice);
+		switch (choice)
+		{
+			case '1':
+			printf("Insert Value for Enqueue Opeartion\n");
+			scanf("%f", &value);
+			circular_enqueue(cq, value, n);
+			if (!circular_isFull(cq, n))
+				printf("Enqueued\n");
+			else 
+				printf("Circular Queue is Full\n");
+			break;
+			case '2':
+			deqvalue = circular_dequeue(cq, n);
+			if (deqvalue != 0.0)
+			printf("Dequeued = %.2f\n", deqvalue);
+			break;
+			case '3':
+			traverse_queue(cq);
+			break;
+			case '$':
+			printf("Exiting...\n");
+			free_queue(cq);
+			return;
+			default:
+			printf("Invalid Case\n");
+		}
+	}	
+}
 Queue *create_queue(int n)
 {
 	Queue *q = (Queue *)malloc(sizeof(Queue));
